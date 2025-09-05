@@ -21,7 +21,7 @@
             <li class="link"><a href="#home">Home</a></li>
             <li class="link"><a href="#about">About</a></li>
             <li class="link"><a href="#discover">Discover</a></li>
-            <li class="link"><a href="#blogs">Blogs</a></li>
+            <li class="link"><a href="#blog">Blogs</a></li>
             <li class="link"><a href="#contact">Contact</a></li>
           </ul>
 
@@ -81,63 +81,18 @@
       </div>
     </section>
 
-    <section class="discover" id="discover">
-      <div class="section__container discover__container">
-        <h2 class="section__header">Discover the most engaging places</h2>
-        <p class="section__subheader">
-          Let's see the world with us with you and your family.
-        </p>
-        <div class="discover__grid">
-          <div class="discover__card">
-            <div class="discover__image">
-              <img src="assets/discover-1.jpg" alt="discover" />
-            </div>
-            <div class="discover__card__content">
-              <h4>Norway</h4>
-              <p>
-                Discover the untamed beauty of Norway, a land where rugged
-                mountains, and enchanting northern lights paint a surreal
-                backdrop.
-              </p>
-              <button class="discover__btn">
-                Discover More <i class="ri-arrow-right-line"></i>
-              </button>
-            </div>
-          </div>
-          <div class="discover__card">
-            <div class="discover__image">
-              <img src="assets/discover-2.jpg" alt="discover" />
-            </div>
-            <div class="discover__card__content">
-              <h4>London</h4>
-              <p>
-                From urban rock climbing to twilight cycling through royal
-                parks, London beckons adventure enthusiasts to embrace
-                opportunities.
-              </p>
-              <button class="discover__btn">
-                Discover More <i class="ri-arrow-right-line"></i>
-              </button>
-            </div>
-          </div>
-          <div class="discover__card">
-            <div class="discover__image">
-              <img src="assets/discover-3.jpg" alt="discover" />
-            </div>
-            <div class="discover__card__content">
-              <h4>Japan</h4>
-              <p>
-                From scaling the iconic peaks of Mount Fuji to immersing in the
-                serenity, Japan offers adventurers a captivating cultural
-                treasures.
-              </p>
-              <button class="discover__btn">
-                Discover More <i class="ri-arrow-right-line"></i>
-              </button>
-            </div>
-          </div>
-        </div>
+    <section class="tourist-places section__container">
+      <h2 class="section__header">Top Tourist Places</h2>
+      <div class="section__subheader">
+        Search for any city to see the top places to visit.
       </div>
+
+      <div class="tourist-search">
+        <input type="text" id="city-input" placeholder="Enter city name..." />
+        <button id="search-btn" class="btn">Search</button>
+      </div>
+
+      <div id="places-container"></div>
     </section>
 
     <section class="blogs" id="blog">
@@ -397,5 +352,6 @@
     </section>
 
     <script src="main.js"></script>
+    <script src="api.js"></script>
   </body>
 </html>
