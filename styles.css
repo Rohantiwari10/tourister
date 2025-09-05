@@ -28,6 +28,7 @@ body {
   color: var(--white);
   background-color: var(--primary-color);
   overflow-x: hidden;
+  transition: background 0.3s ease, color 0.3s ease;
 }
 img { width: 100%; display: block; }
 a { text-decoration: none; color: inherit; }
@@ -92,7 +93,7 @@ header {
   transform: translateY(-50%); height: 2px; width: 2rem; background-color: var(--white);
 }
 
-/* ---------- Navbar ---------- */
+/* ---------- Navbar (UPDATED NAVBAR) ---------- */
 nav {
   position: sticky; top: 0; z-index: 50;
   background-color: rgba(0,0,0,0.5);
@@ -117,8 +118,44 @@ nav {
 .link a:hover { color: var(--secondary-color); border-bottom: 2px solid var(--secondary-color); }
 .link span { padding: 0.5rem 0; color: var(--white); cursor: pointer; }
 
-/* Hamburger (needs <div id="nav-toggle" class="nav__hamburger">) */
-.nav__hamburger { display: none; font-size: 1.8rem; color: var(--white); cursor: pointer; }
+/* Controls: Hamburger + Theme Toggle grouped */
+.nav__controls {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  z-index: 1001;
+}
+
+.theme__toggle,
+.nav__hamburger {
+  font-size: 1.6rem;
+  color: var(--white);
+  cursor: pointer;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.theme__toggle:hover,
+.nav__hamburger:hover {
+  transform: scale(1.15);
+  color: var(--secondary-color);
+}
+
+/* Hide hamburger by default (desktop) */
+.nav__hamburger {
+  display: none;
+  position: relative;
+  z-index: 1001;
+}
+
+/* THEME TOGGLE rotation */
+.theme__toggle i {
+  display: inline-block;
+  transition: transform 0.3s ease;
+}
+body.light-theme .theme__toggle i {
+  transform: rotate(360deg);
+  color: #111;
+}
 
 /* ---------- About ---------- */
 .about__container {
@@ -266,18 +303,36 @@ nav {
 
 /* ---------- Responsive (Mobile) ---------- */
 @media (max-width: 900px) {
-  /* Mobile menu */
+  /* Show hamburger only on mobile */
   .nav__hamburger { display: block; }
+
+  /* Slide menu */
   .nav__links {
-    position: fixed; top: 0; right: -100%; height: 100vh; width: min(82vw, 320px);
-    background: var(--primary-color-light); flex-direction: column; align-items: flex-start;
-    padding: 5.5rem 1.5rem 2rem; gap: .25rem; z-index: 999; box-shadow: -10px 0 30px rgba(0,0,0,.35);
+    position: fixed;
+    top: 0;
+    right: -100%;
+    height: 100vh;
+    width: min(82vw, 320px);
+    background: var(--primary-color-light);
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 5.5rem 1.5rem 2rem;
+    gap: .25rem;
+    z-index: 999;
+    box-shadow: -10px 0 30px rgba(0,0,0,.35);
+    transition: right 0.3s ease;
   }
   .nav__links.show { right: 0; }
-  .nav__links .link a { display: block; padding: .9rem 0; width: 100%; border-bottom: 1px solid rgba(255,255,255,.06); }
+
+  .nav__links .link a {
+    display: block;
+    padding: .9rem 0;
+    width: 100%;
+    border-bottom: 1px solid rgba(255,255,255,.06);
+  }
 
   .about__container { grid-template-columns: 1fr; text-align: center; }
-  .about__image { grid-area: 1/1/2/2; } /* image first on mobile */
+  .about__image { grid-area: 1/1/2/2; }
   .about__flex { justify-content: center; }
   .discover__grid { grid-template-columns: repeat(2, 1fr); }
   .discover__card:nth-child(2) { transform: translateY(0); }
