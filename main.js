@@ -4,6 +4,31 @@ const scrollRevealOption = {
   duration: 1000,
 };
 
+// Hamburger toggle
+const navToggle = document.getElementById("nav-toggle");
+const navLinks = document.getElementById("nav-links");
+
+navToggle.addEventListener("click", () => {
+  navLinks.classList.toggle("show");
+});
+
+// Dark/Light mode toggle
+const themeToggle = document.getElementById("theme-toggle");
+const body = document.body;
+
+themeToggle.addEventListener("click", () => {
+  body.classList.toggle("light-theme");
+
+  // Switch icon
+  if (body.classList.contains("light-theme")) {
+    themeToggle.innerHTML = '<i class="ri-moon-line"></i>';
+  } else {
+    themeToggle.innerHTML = '<i class="ri-sun-line"></i>';
+  }
+});
+
+
+
 // header container
 ScrollReveal().reveal(".header__container h1", scrollRevealOption);
 

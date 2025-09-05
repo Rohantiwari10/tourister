@@ -10,6 +10,14 @@
   --header-font: "Lisu Bosa", serif;
 }
 
+body.light-theme {
+  --primary-color: #ffffff;
+  --primary-color-light: #f1f1f1;
+  --secondary-color: #0a84ff;
+  --extra-light: rgba(0, 0, 0, 0.4);
+  --white: #000000;
+}
+
 * {
   padding: 0;
   margin: 0;
@@ -101,6 +109,43 @@ nav {
   align-items: center;
   gap: 2rem;
 }
+
+/* Hamburger hidden on desktop */
+.nav__hamburger {
+  display: none;
+  font-size: 1.8rem;
+  color: var(--white);
+  cursor: pointer;
+}
+
+/* Mobile nav */
+@media (max-width: 900px) {
+  .nav__hamburger {
+    display: block;
+  }
+
+  .nav__links {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 250px;
+    height: 100vh;
+    background: var(--primary-color-light);
+    flex-direction: column;
+    align-items: start;
+    padding: 2rem;
+    transition: 0.3s;
+  }
+
+  .nav__links.show {
+    right: 0;
+  }
+
+  .nav__links li {
+    margin: 1rem 0;
+  }
+}
+
 
 .link a {
   padding: 1.5rem 5px;

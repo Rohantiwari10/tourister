@@ -9,14 +9,20 @@
     />
     <link rel="stylesheet" href="styles.css" />
     <script src="https://unpkg.com/scrollreveal"></script>
-    <title>Plan My Trip | Tourister </title>
+    <title>Plan My Trip | Tourister</title>
   </head>
   <body>
     <header id="home">
       <nav>
         <div class="nav__bar">
           <div class="nav__logo"><a href="#">Tourister</a></div>
-          <ul class="nav__links">
+
+          <!-- Hamburger for mobile -->
+          <div class="nav__hamburger" id="nav-toggle">
+            <i class="ri-menu-line"></i>
+          </div>
+
+          <ul class="nav__links" id="nav-links">
             <li class="link"><a href="#home">Home</a></li>
             <li class="link"><a href="#about">About Us</a></li>
             <li class="link"><a href="#discover">Discover</a></li>
@@ -27,9 +33,13 @@
             <li class="link search">
               <span><i class="ri-search-line"></i></span>
             </li>
+            <li class="link">
+              <span id="theme-toggle"><i class="ri-sun-line"></i></span>
+            </li>
           </ul>
         </div>
       </nav>
+
       <div class="section__container header__container">
         <h1>The new way to plan your next Trip</h1>
         <h4>Explore the colourful world</h4>
@@ -388,7 +398,6 @@
           <li class="footer__link"><a href="#contact">Contact</a></li>
         </ul>
       </div>
-     
     </section>
 
     <script src="main.js"></script>
